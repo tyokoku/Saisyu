@@ -48,6 +48,8 @@ public class StampActivity extends AppCompatActivity {
         /*ホーム画面に戻る*/
         Button returnButton = findViewById(R.id.returnbutton);
         returnButton.setOnClickListener(v -> finish());
+
+
     }
 }
 
