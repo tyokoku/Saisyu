@@ -27,6 +27,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.text.BreakIterator;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,8 +38,7 @@ public class StampActivity extends AppCompatActivity {
     static MyDbHelper dbAdapter;
 
 
-    ListView listView1;
-    ListView myListView;
+    private DatabaseHelper helper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,34 +48,6 @@ public class StampActivity extends AppCompatActivity {
         /*ホーム画面に戻る*/
         Button returnButton = findViewById(R.id.returnbutton);
         returnButton.setOnClickListener(v -> finish());
-
-
-        listView1 = (ListView) findViewById(R.id.listview1);
-
-        //db
-        MyDbHelper mDbHelper = new MyDbHelper(this);
-        try {
-            mDbHelper.createEmptyDataBase();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        SQLiteDatabase db = mDbHelper.getReadableDatabase();
-
-        //select
-        Cursor c = db.rawQuery("select * from sculputure", null);
-
-        //adapterの準備
-        //表示するカラム名
-        String[] from = {"_id", "name"};
-        //バインドするViewリソース
-        //int[] to = {android.R.id.text1, android.R.id.text2};
-
-        //adapter生成
-        ArrayAdapter<String> adapter =
-                new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, from);
-
-        listView1.setAdapter(adapter);
-
     }
 }
 

@@ -48,6 +48,8 @@
     </activity>
     <activity android:name="com.google.ar.core.examples.java.helloar.HelloArActivity">
     </activity>
+    <activity android:name="com.example.tyokoku.StampActivity">
+    </activity>
 
     <!-- Indicates whether "Google Play Services for AR" (ARCore) is "required" or "optional". -->
     <meta-data android:name="com.google.ar.core" android:value="required" />
