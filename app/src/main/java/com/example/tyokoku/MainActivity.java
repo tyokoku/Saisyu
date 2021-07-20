@@ -27,9 +27,6 @@ public class MainActivity extends AppCompatActivity {
         Button Stamp = findViewById(R.id.button2);
         Button Ar = findViewById(R.id.button);
 
-        /*テスト用　削除！*/
-        textView = findViewById(R.id.text_view);
-
         /*設定画面への遷移*/
         Setting.setOnClickListener( v -> {
             // flagがtrueの時
@@ -46,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
         /*スタンプラリー画面への遷移*/
         Stamp.setOnClickListener( v -> {
-            Intent intent = new Intent(getApplication(), StampActivity.class);
+            Intent intent = new Intent(getApplication(), com.example.tyokoku.StampActivity.class);
             startActivity(intent);
         });
 
