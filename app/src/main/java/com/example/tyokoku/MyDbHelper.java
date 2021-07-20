@@ -15,7 +15,7 @@ import java.io.OutputStream;
 
 public class MyDbHelper extends SQLiteOpenHelper {
 
-    private static String DB_NAME = "sculpture.db";
+    private static String DB_NAME = "sculpture";
     private static String DB_NAME_ASSET = "sculpture.db";
     private static final int DATABASE_VERSION = 1;
 

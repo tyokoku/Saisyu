@@ -59,7 +59,7 @@ public class StampActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        SQLiteDatabase db = mDbHelper.getWritableDatabase();
+        SQLiteDatabase db = mDbHelper.getReadableDatabase();
 
         //select
         Cursor c = db.rawQuery("select * from sculputure", null);
