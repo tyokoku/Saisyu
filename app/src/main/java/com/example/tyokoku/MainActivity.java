@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
         /*AR画面への遷移*/
         Ar.setOnClickListener( v -> {
-            Intent intent = new Intent(getApplication(), HelloArActivity.class);
+            Intent intent = new Intent(getApplication(), com.google.ar.core.examples.java.helloar.HelloArActivity.class);
             startActivity(intent);
         });
 
