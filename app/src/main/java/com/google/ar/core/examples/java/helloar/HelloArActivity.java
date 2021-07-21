@@ -226,7 +226,8 @@ public class HelloArActivity extends AppCompatActivity implements SampleRender.R
             popup.show();
           }
         });
-
+    Button returnButton = findViewById(R.id.return_button);
+    returnButton.setOnClickListener(v -> finish());
 
     TextView textView = (TextView) findViewById(R.id.textview);
     textView.setText("超彫刻");
