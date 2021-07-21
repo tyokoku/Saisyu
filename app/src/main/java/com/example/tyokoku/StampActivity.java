@@ -1,5 +1,6 @@
 package com.example.tyokoku;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.database.Cursor;
@@ -9,11 +10,13 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
@@ -32,13 +35,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class StampActivity extends AppCompatActivity {
+public class StampActivity extends AppCompatActivity{
     static List<String> items = new ArrayList<String>();
     static ArrayAdapter<String> adapter;
     static MyDbHelper dbAdapter;
 
 
     private DatabaseHelper helper;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,9 +53,32 @@ public class StampActivity extends AppCompatActivity {
         Button returnButton = findViewById(R.id.returnbutton);
         returnButton.setOnClickListener(v -> finish());
 
+        myMethod();
+    }
 
+
+    public void myMethod(){
+            ImageView img1 = (ImageView) this.findViewById(R.id.circle1);
+
+            // タッチイベント
+            // ボタンを押すとACTION_DOWN、離すとACTION_UPが発生
+            img1.setOnTouchListener(new View.OnTouchListener(){
+                public boolean onTouch(View v,MotionEvent event){
+                    int action = event.getAction();
+                    switch(action){
+                        case MotionEvent.ACTION_DOWN: // 押す
+                            img1.setImageResource(R.drawable.stamp);
+                            break;
+                        case MotionEvent.ACTION_UP: // 離す
+                            break;
+                    }
+
+                    // trueにすると以下のOnLongClickやOnClickが呼ばれない
+                    return true;
+                }});
     }
 }
+
 
 
 
