@@ -58,25 +58,20 @@ public class StampActivity extends AppCompatActivity{
 
 
     public void myMethod(){
-            ImageView img1 = (ImageView) this.findViewById(R.id.circle1);
+        for(int i=0; i < 216; i++) {
+            String str = "circle" + (i+1);
+            int Id = getResources().getIdentifier(str, "id", getPackageName());
+            ImageView id = (ImageView)findViewById(Id);
 
-            // タッチイベント
-            // ボタンを押すとACTION_DOWN、離すとACTION_UPが発生
-            img1.setOnTouchListener(new View.OnTouchListener(){
-                public boolean onTouch(View v,MotionEvent event){
-                    int action = event.getAction();
-                    switch(action){
-                        case MotionEvent.ACTION_DOWN: // 押す
-                            img1.setImageResource(R.drawable.stamp);
-                            break;
-                        case MotionEvent.ACTION_UP: // 離す
-                            break;
-                    }
+            id.setOnClickListener(new View.OnClickListener(){
+                public void onClick(View v){
+                    id.setImageResource(R.drawable.stamp);
+                }
+            });
+        }
 
-                    // trueにすると以下のOnLongClickやOnClickが呼ばれない
-                    return true;
-                }});
     }
+
 }
 
 
