@@ -36,12 +36,6 @@ import java.util.List;
 
 
 public class StampActivity extends AppCompatActivity{
-    static List<String> items = new ArrayList<String>();
-    static ArrayAdapter<String> adapter;
-    static MyDbHelper dbAdapter;
-
-
-    private DatabaseHelper helper;
 
 
     @Override

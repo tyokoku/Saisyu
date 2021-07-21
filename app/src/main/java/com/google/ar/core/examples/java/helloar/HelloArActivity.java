@@ -27,6 +27,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.PopupMenu;
 import android.widget.TextView;
@@ -201,6 +202,8 @@ public class HelloArActivity extends AppCompatActivity implements SampleRender.R
     surfaceView = findViewById(R.id.surfaceview);
     displayRotationHelper = new DisplayRotationHelper(/*context=*/ this);
 
+
+
     // Set up touch listener.タッチリスナーを設定します。
     tapHelper = new TapHelper(/*context=*/ this);
     surfaceView.setOnTouchListener(tapHelper);
@@ -212,7 +215,7 @@ public class HelloArActivity extends AppCompatActivity implements SampleRender.R
 
     depthSettings.onCreate(this);
     instantPlacementSettings.onCreate(this);
-    ImageButton settingsButton = findViewById(R.id.settings_button);
+    Button settingsButton = findViewById(R.id.settings_button);
     settingsButton.setOnClickListener(
         new View.OnClickListener() {
           @Override
@@ -223,6 +226,9 @@ public class HelloArActivity extends AppCompatActivity implements SampleRender.R
             popup.show();
           }
         });
+    /*ホーム画面に戻る*/
+    Button return_button = findViewById(R.id.return_button);
+    return_button.setOnClickListener(v -> finish());
 
     TextView textView = (TextView) findViewById(R.id.textview);
     textView.setText("超彫刻");
